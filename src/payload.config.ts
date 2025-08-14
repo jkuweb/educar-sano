@@ -1,11 +1,11 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { es } from '@payloadcms/translations/languages/es'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -19,6 +19,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+  },
+  i18n: {
+    supportedLanguages: { es },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
